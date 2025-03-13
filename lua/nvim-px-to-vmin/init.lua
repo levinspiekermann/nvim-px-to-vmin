@@ -80,7 +80,7 @@ M.px_to_vmin = function()
 	for vmin in line_content:gmatch("(-?%d+%.?%d*)vmin") do
 		local vmin_size = tonumber(vmin)
 		local px_size = vmin_size * 0.0926
-		local pxvmin = string.format("%spx", tostring(px_size))
+		local pxvmin = string.format("%svmin", tostring(px_size))
 		table.insert(virtual_text, pxvmin)
 	end
 
@@ -102,7 +102,7 @@ M.px_to_vmin = function()
 				id = M.namespace,
 				priority = 100,
 			}
-			-- { { table.concat(virtual_text, " "), "Comment" } }
+		-- { { table.concat(virtual_text, " "), "Comment" } }
 		)
 	end
 end
@@ -167,7 +167,7 @@ M.dot_px_to_vmin_on_line = function()
 		for vmin in line_content:gmatch("(-?%d+%.?%d*)px") do
 			local vmin_size = tonumber(vmin)
 			local px_size = vmin_size / M.options.root_font_size
-			local pxvmin = string.format("%vmin", tostring(utils.round(px_size, M.options.decimal_count)))
+			local pxvmin = string.format("%svmin", tostring(px_size))
 
 			found = true
 			new_line = new_line:gsub("(-?%d+%.?%d*)px", pxvmin, 1)
